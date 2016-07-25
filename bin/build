@@ -1,0 +1,25 @@
+require "json"
+require "fileutils"
+
+build_path = File.expand_path("./build/")
+puts build_path
+if !File.exists?(build_path)
+  FileUtils.mkdir_p(build_path)
+end
+
+if !File.directory?(build_path)
+  puts "Build path `#{build_path}` is not a directory."
+  puts "Exiting."
+end
+
+db_path = File.join(build_path, "db.json")
+content = if File.exists?(db_path)
+  JSON.parse(File.read(db_path))
+else
+  []
+end
+
+content << {value: rand, created_at: Time.now.utc.to_s}
+
+File.write(db_path, JSON.pretty_generate(content))
+puts "Done."
