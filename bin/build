@@ -22,4 +22,5 @@ end
 content << {value: rand, created_at: Time.now.utc.to_s}
 
 File.write(db_path, JSON.pretty_generate(content))
+
 puts "Done."
