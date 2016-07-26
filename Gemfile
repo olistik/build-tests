@@ -1,4 +1,5 @@
 source "https://rubygems.org"
 
-gem "middleman", "~> 3.3"
-gem "middleman-deploy", "~> 1.0"
+gem "middleman", "~> 4.1"
+gem 'middleman-deploy', github: 'middleman-contrib/middleman-deploy', branch: 'master'
+
